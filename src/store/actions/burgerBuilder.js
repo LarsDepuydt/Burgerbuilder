@@ -6,14 +6,14 @@ export const addIngredient = (name) => {
         type: actionTypes.ADD_INGREDIENT,
         ingredientName: name
     };
-}
+};
 
 export const removeIngredient = (name) => {
     return {
         type: actionTypes.REMOVE_INGREDIENT,
         ingredientName: name
     };
-}
+};
 
 export const setIngredients = (ingredients) => {
     return {
@@ -30,7 +30,7 @@ export const fetchIngredientsFailed = () => {
 
 export const initIngredients = () => {
     return dispatch => {
-        axios.get('https://reactmyburger-larsd.firebaseio.com/ingredients.json')
+        axios.get('/ingredients.json')
             .then(response => {
                 dispatch(setIngredients(response.data));
             })
@@ -38,4 +38,4 @@ export const initIngredients = () => {
                 dispatch(fetchIngredientsFailed());
             });
     };
-}
+};
